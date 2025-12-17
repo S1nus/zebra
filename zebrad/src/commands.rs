@@ -10,13 +10,17 @@ use crate::config::ZebradConfig;
 
 pub use self::{entry_point::EntryPoint, start::StartCmd};
 
-use self::{copy_state::CopyStateCmd, generate::GenerateCmd, tip_height::TipHeightCmd};
+use self::{
+    copy_state::CopyStateCmd, generate::GenerateCmd, generate_genesis::GenerateGenesisCmd,
+    tip_height::TipHeightCmd,
+};
 
 pub mod start;
 
 mod copy_state;
 mod entry_point;
 mod generate;
+mod generate_genesis;
 mod tip_height;
 
 #[cfg(test)]
@@ -36,6 +40,9 @@ pub enum ZebradCmd {
 
     /// Generate a default `zebrad.toml` configuration
     Generate(GenerateCmd),
+
+    /// Generate an empty genesis block and save it to a file
+    GenerateGenesis(GenerateGenesisCmd),
 
     /// Start the application (default command)
     Start(StartCmd),
@@ -57,7 +64,7 @@ impl ZebradCmd {
             CopyState(_) | Start(_) => true,
 
             // Utility commands that don't use server components
-            Generate(_) | TipHeight(_) => false,
+            Generate(_) | GenerateGenesis(_) | TipHeight(_) => false,
         }
     }
 
@@ -71,14 +78,14 @@ impl ZebradCmd {
             Start(_) => true,
 
             // Utility commands
-            CopyState(_) | Generate(_) | TipHeight(_) => false,
+            CopyState(_) | Generate(_) | GenerateGenesis(_) | TipHeight(_) => false,
         }
     }
 
     /// Returns true if this command should ignore errors when
     /// attempting to load a config file.
     pub(crate) fn should_ignore_load_config_error(&self) -> bool {
-        matches!(self, ZebradCmd::Generate(_))
+        matches!(self, ZebradCmd::Generate(_) | ZebradCmd::GenerateGenesis(_))
     }
 
     /// Returns the default log level for this command, based on the `verbose` command line flag.
@@ -90,7 +97,7 @@ impl ZebradCmd {
             // This output:
             // - is used by automated tools, or
             // - needs to be read easily.
-            Generate(_) | TipHeight(_) => true,
+            Generate(_) | GenerateGenesis(_) | TipHeight(_) => true,
 
             // Commands that generate informative logging output by default.
             CopyState(_) | Start(_) => false,
@@ -111,6 +118,7 @@ impl Runnable for ZebradCmd {
         match self {
             CopyState(cmd) => cmd.run(),
             Generate(cmd) => cmd.run(),
+            GenerateGenesis(cmd) => cmd.run(),
             Start(cmd) => cmd.run(),
             TipHeight(cmd) => cmd.run(),
         }
