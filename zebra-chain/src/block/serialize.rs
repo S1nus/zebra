@@ -103,6 +103,7 @@ impl ZcashDeserialize for Header {
             difficulty_threshold: CompactDifficulty(reader.read_u32::<LittleEndian>()?),
             nonce: reader.read_32_bytes()?.into(),
             solution: equihash::Solution::zcash_deserialize(reader)?,
+            shielded_transaction_aggregate: None,
         })
     }
 }
@@ -159,6 +160,7 @@ impl ZcashDeserialize for Block {
         Ok(Block {
             header: limited_reader.zcash_deserialize_into()?,
             transactions: limited_reader.zcash_deserialize_into()?,
+            tachygrams: None,
         })
     }
 }
