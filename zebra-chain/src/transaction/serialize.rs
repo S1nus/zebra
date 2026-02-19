@@ -596,7 +596,7 @@ impl ZcashDeserialize for Option<tachyon::ShieldedData> {
             if anchor_elem.is_none().into() {
                 return Err(SerializationError::Parse("Invalid pallas::Base in anchor"));
             }
-            let anchor = tachyon::Epoch(anchor_elem.unwrap().into());
+            let anchor = tachyon::Anchor(anchor_elem.unwrap().into());
 
             // vTachygrams: n × 32 bytes
             let mut tachygrams = Vec::with_capacity(n_tachygrams);

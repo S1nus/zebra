@@ -44,9 +44,9 @@ fn arb_action() -> impl Strategy<Value = tachyon::Action> {
     (any::<bool>(), any::<[u8; 32]>(), any::<[u8; 64]>()).prop_map(
         |(use_identity, rk_bytes, sig_bytes)| {
             let cv = if use_identity {
-                tachyon::ValueCommitment(pallas::Affine::identity().into())
+                tachyon::action::ValueCommitment::from(pallas::Affine::identity())
             } else {
-                tachyon::ValueCommitment(pallas::Affine::generator().into())
+                tachyon::action::ValueCommitment::from(pallas::Affine::generator())
             };
             // Fallback to a known-good key if random bytes are invalid
             let rk = tachyon::RandomizedVerificationKey::try_from(rk_bytes).unwrap_or_else(|_| {
@@ -61,7 +61,7 @@ fn arb_action() -> impl Strategy<Value = tachyon::Action> {
 fn arb_stamp() -> impl Strategy<Value = tachyon::Stamp> {
     (
         proptest::collection::vec(arb_tachygram(), 0..20),
-        arb_epoch(),
+        arb_anchor(),
     )
         .prop_map(|(tachygrams, anchor)| tachyon::Stamp {
             tachygrams,
@@ -71,9 +71,13 @@ fn arb_stamp() -> impl Strategy<Value = tachyon::Stamp> {
 }
 
 fn arb_tachygram() -> impl Strategy<Value = tachyon::Tachygram> {
-    any::<u64>().prop_map(|val| tachyon::Tachygram(pallas::Base::from(val).into()))
+    any::<u64>().prop_map(|val| tachyon::Tachygram::from(pallas::Base::from(val)))
 }
 
 fn arb_epoch() -> impl Strategy<Value = tachyon::Epoch> {
-    any::<u64>().prop_map(|val| tachyon::Epoch(pallas::Base::from(val).into()))
+    any::<u64>().prop_map(|val| tachyon::Epoch::from(pallas::Base::from(val)))
+}
+
+fn arb_anchor() -> impl Strategy<Value = tachyon::Anchor> {
+    any::<u64>().prop_map(|val| tachyon::Anchor::from(pallas::Base::from(val)))
 }

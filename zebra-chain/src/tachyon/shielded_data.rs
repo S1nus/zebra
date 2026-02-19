@@ -21,7 +21,7 @@ use crate::amount::{Amount, NegativeAllowed};
 ///
 /// Uses tachyon crate types directly. Serde is implemented at the bundle
 /// level — individual tachyon types do not carry serde derives.
-#[derive(Clone, Eq, PartialEq)]
+#[derive(Clone)]
 pub struct ShieldedData {
     /// The actions (cv, rk, sig for each).
     pub actions: Vec<tachyon::Action>,
@@ -85,7 +85,7 @@ impl ShieldedData {
     /// signature proves that the signer knew all value commitment trapdoors,
     /// which transitively proves value balance integrity.
     /// Returns None if there are no actions.
-    pub fn binding_verification_key(&self) -> Option<tachyon::VerificationKey<tachyon::Binding>> {
+    pub fn binding_verification_key(&self) -> Option<tachyon::BindingVerificationKey> {
         if self.actions.is_empty() {
             return None;
         }
@@ -199,7 +199,7 @@ impl<'de> serde::Deserialize<'de> for ShieldedData {
                 if bool::from(anchor_elem.is_none()) {
                     return Err(serde::de::Error::custom("Invalid pallas::Base for anchor"));
                 }
-                let anchor = tachyon::Epoch(anchor_elem.unwrap().into());
+                let anchor = tachyon::Anchor(anchor_elem.unwrap().into());
 
                 Ok(tachyon::Stamp {
                     tachygrams,
