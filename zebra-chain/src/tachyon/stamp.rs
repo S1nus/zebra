@@ -8,13 +8,13 @@ pub struct Stamp {}
 impl ZcashSerialize for Stamp {
     fn zcash_serialize<W: io::Write>(&self, _writer: W) -> Result<(), io::Error> {
         // Empty stamp placeholder - no serialization needed yet
-        Ok(())
+        unimplemented!()
     }
 }
 
 impl ZcashDeserialize for Stamp {
     fn zcash_deserialize<R: io::Read>(_reader: R) -> Result<Self, SerializationError> {
         // Empty stamp placeholder - no deserialization needed yet
-        Ok(Stamp {})
+        unimplemented!()
     }
 }
