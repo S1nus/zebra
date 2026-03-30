@@ -214,7 +214,11 @@ pub fn proposal_block_from_template(
         NetworkUpgrade::Canopy => chain_history_root.bytes_in_serialized_order(),
         NetworkUpgrade::Nu5 | NetworkUpgrade::Nu6 | NetworkUpgrade::Nu6_1 | NetworkUpgrade::Nu7 => {
             block_commitments_hash.bytes_in_serialized_order()
-        }
+        },
+        #[cfg(zcash_unstable = "zfuture")]
+        NetworkUpgrade::ZFuture => {
+            block_commitments_hash.bytes_in_serialized_order()
+        },
         _ => Err(SerializationError::Parse(
             "Zebra does not support generating pre-Canopy block templates",
         ))?,
@@ -233,5 +237,8 @@ pub fn proposal_block_from_template(
             solution: Solution::for_proposal(),
         }),
         transactions,
+        tachygrams: None,
+        shielded_transaction_aggregate: None,
+        block_tachygram_root: Default::default(),
     })
 }

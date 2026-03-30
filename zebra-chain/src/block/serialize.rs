@@ -159,6 +159,9 @@ impl ZcashDeserialize for Block {
         Ok(Block {
             header: limited_reader.zcash_deserialize_into()?,
             transactions: limited_reader.zcash_deserialize_into()?,
+            tachygrams: None,
+            shielded_transaction_aggregate: None,
+            block_tachygram_root: Default::default(),
         })
     }
 }

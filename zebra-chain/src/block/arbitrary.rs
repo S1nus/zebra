@@ -3,18 +3,9 @@
 use proptest::prelude::*;
 
 use crate::{
-    amount::NonNegative,
-    block,
-    fmt::{HexDebug, SummaryDebug},
-    history_tree::HistoryTree,
-    parameters::{NetworkUpgrade::*, GENESIS_PREVIOUS_BLOCK_HASH},
-    serialization::{self, BytesInDisplayOrder},
-    transaction::arbitrary::MAX_ARBITRARY_ITEMS,
-    transparent::{
-        new_transaction_ordered_outputs, CoinbaseSpendRestriction,
-        MIN_TRANSPARENT_COINBASE_MATURITY,
-    },
-    work::{difficulty::CompactDifficulty, equihash},
+    amount::NonNegative, block, fmt::{HexDebug, SummaryDebug}, history_tree::HistoryTree, parameters::{GENESIS_PREVIOUS_BLOCK_HASH, NetworkUpgrade::*}, serialization::{self, BytesInDisplayOrder}, tachyon::ShieldedTransactionAggregate, transaction::arbitrary::MAX_ARBITRARY_ITEMS, transparent::{
+        CoinbaseSpendRestriction, MIN_TRANSPARENT_COINBASE_MATURITY, new_transaction_ordered_outputs
+    }, work::{difficulty::CompactDifficulty, equihash}
 };
 
 use super::*;
@@ -370,6 +361,9 @@ impl Arbitrary for Block {
             .prop_map(move |(header, transactions)| Self {
                 header: header.into(),
                 transactions,
+                tachygrams: None,
+                shielded_transaction_aggregate: None,
+                block_tachygram_root: Default::default(),
             })
             .boxed()
     }
