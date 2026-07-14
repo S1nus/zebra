@@ -1592,7 +1592,7 @@ dependencies = [
 [[package]]
 name = "equihash"
 version = "0.3.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "blake2b_simd",
  "cc",
@@ -1639,7 +1639,7 @@ dependencies = [
 [[package]]
 name = "f4jumble"
 version = "0.1.1"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "blake2b_simd",
 ]
@@ -4072,7 +4072,7 @@ checksum = "dc33ff2d4973d518d823d61aa239014831e521c75da58e3df4840d3f47749d09"
 [[package]]
 name = "ragu"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "blake2b_simd",
  "ragu_arithmetic",
@@ -4086,7 +4086,7 @@ dependencies = [
 [[package]]
 name = "ragu_arithmetic"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "ff",
  "group",
@@ -4099,7 +4099,7 @@ dependencies = [
 [[package]]
 name = "ragu_circuits"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "blake2b_simd",
  "maybe-rayon 0.1.1 (git+https://github.com/tachyon-zcash/maybe-rayon.git?rev=5c37ee0dd448e8c1edc4529d0b8897ecaff5aad1)",
@@ -4111,7 +4111,7 @@ dependencies = [
 [[package]]
 name = "ragu_core"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "ragu_arithmetic",
  "ragu_macros",
@@ -4121,7 +4121,7 @@ dependencies = [
 [[package]]
 name = "ragu_macros"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "num-bigint",
  "num-traits",
@@ -4134,7 +4134,7 @@ dependencies = [
 [[package]]
 name = "ragu_pasta"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "lazy_static",
  "ragu_arithmetic",
@@ -4143,7 +4143,7 @@ dependencies = [
 [[package]]
 name = "ragu_pcd"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "maybe-rayon 0.1.1 (git+https://github.com/tachyon-zcash/maybe-rayon.git?rev=5c37ee0dd448e8c1edc4529d0b8897ecaff5aad1)",
  "ragu_arithmetic",
@@ -4155,7 +4155,7 @@ dependencies = [
 [[package]]
 name = "ragu_primitives"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/ragu?rev=88be1399b541f0e9bef709f3dd2a655a6529dca0#88be1399b541f0e9bef709f3dd2a655a6529dca0"
+source = "git+https://github.com/s1nus/ragu?rev=54004571c7c75d7df981d09d01a1f8af52561e1e#54004571c7c75d7df981d09d01a1f8af52561e1e"
 dependencies = [
  "ragu_arithmetic",
  "ragu_core",
@@ -6963,7 +6963,7 @@ dependencies = [
 [[package]]
 name = "zcash_address"
 version = "0.12.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "bech32",
  "bs58",
@@ -6976,7 +6976,7 @@ dependencies = [
 [[package]]
 name = "zcash_encoding"
 version = "0.4.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "corez",
  "hex",
@@ -6986,7 +6986,7 @@ dependencies = [
 [[package]]
 name = "zcash_history"
 version = "0.4.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "blake2b_simd",
  "byteorder",
@@ -6996,7 +6996,7 @@ dependencies = [
 [[package]]
 name = "zcash_keys"
 version = "0.14.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "bech32",
  "blake2b_simd",
@@ -7036,7 +7036,7 @@ dependencies = [
 [[package]]
 name = "zcash_primitives"
 version = "0.28.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "blake2b_simd",
  "block-buffer 0.11.0-rc.3",
@@ -7068,7 +7068,7 @@ dependencies = [
 [[package]]
 name = "zcash_proofs"
 version = "0.28.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "bellman",
  "blake2b_simd",
@@ -7090,7 +7090,7 @@ dependencies = [
 [[package]]
 name = "zcash_protocol"
 version = "0.9.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "corez",
  "document-features",
@@ -7128,7 +7128,7 @@ dependencies = [
 [[package]]
 name = "zcash_tachyon"
 version = "0.0.0"
-source = "git+https://github.com/S1nus/tachyon?rev=af003b1aa55e0c19943141611ebb4afd79b76523#af003b1aa55e0c19943141611ebb4afd79b76523"
+source = "git+https://github.com/S1nus/tachyon?rev=e89d46cc9c9f0ee609a235807e320cd95781f55d#e89d46cc9c9f0ee609a235807e320cd95781f55d"
 dependencies = [
  "blake2b_simd",
  "corez",
@@ -7145,7 +7145,7 @@ dependencies = [
 [[package]]
 name = "zcash_transparent"
 version = "0.8.0"
-source = "git+https://github.com/S1nus/librustzcash?rev=95725c839e874eb16f95d46cc6bed636fa202705#95725c839e874eb16f95d46cc6bed636fa202705"
+source = "git+https://github.com/S1nus/librustzcash?rev=b8aeb0545941662789d7c861b79d421ed10f3bbb#b8aeb0545941662789d7c861b79d421ed10f3bbb"
 dependencies = [
  "bip32",
  "bs58",
